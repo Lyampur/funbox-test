@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;500;600;700&display=swap');
+
+body {
+  background-image: url('img/background-pattern.png');
+  font-family: 'Raleway', sans-serif;
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* карточки */
+.card {
+  background: white;
+  border: 3px solid #1698d9;
+  border-radius: .75rem;
+  min-width: 18rem;
+  max-width: 18rem;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+/* состояния карточек */
+.card-hover {
+  border: 3px solid #2ea8e6;
+  cursor: pointer;
+}
+
+.card-selected {
+  border: 3px solid #d91667;
+}
+
+.card-selected-hover {
+  border: 3px solid #e62e7a;
+  cursor: pointer;
+}
+
+.card-disabled {
+  pointer-events: none;
+  border: 3px solid #b3b3b3;
+}
+
+.card-disabled .card-body{
+  filter: opacity(40%);
+}
+
+.card-disabled picture{
+  filter: opacity(40%);
+}
+
+.text-disabled {
+  color: #ffff66 !important;
+}
+
+/* шрифты */
+/* заголовок */
+.row div h2 {
+  color: white;
+  font-weight: 200;
+}
+
+/* карточка */
+h1 {
+  font-weight: 700;
+  margin: 0rem;
+  margin-top: 0.2rem;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-body p {
+  font-weight: 500;
+  color: #666666;
+  font-size: 0.9rem;
+  margin: 0rem;
+}
+
+/* подвал */
+#cellar {
+  font-weight: 500;
+  color: white;
+  font-size: 0.8rem;
+}
+
+#cellar a {
+  border-bottom: 1px dashed #1698d9;
+  color: #1698d9;
+  cursor: pointer;
+}
+
+/* изображениe */
+/* позиция контейнера для изображения относительно карточки */
+picture {
+   position: relative;
+   overflow: hidden;
+   height: 15rem;
+   border: 0px solid rgba(0,0,0,0);
+   border-radius: .5rem;
+}
+
+/* позиция изображения в самом контейнере */
+img {
+  position: absolute;
+  transform:translate(-10%);
+  width: 22rem;
+  object-fit:cover;
+}
+
+/* круг */
+.circle {
+  position: absolute;
+  transform:translate(280%, 485%);
+  width: 4.5rem;
+  height: 4.5rem;
+  background: #1698d9;
+  border: 0px solid rgba(0,0,0,0);
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+}
+
+/* состояния круга */
+.card-hover .circle {
+  background: #1698d9;
+}
+
+.card-selected .circle {
+  background: #d91667;
+}
+
+.card-selected-hover .circle {
+  background: #e62e7a;
+}
+
+.card-disabled .circle {
+  background: #b3b3b3;
+}
+
+.circle h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0rem;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+    <title>Нямушка</title>
+  </head>
+  <body>
+    <div id='app' class="container">
+      <!-- загаловок -->
+      <div class="row">
+        <div class="col-md text-center my-3">
+          <h2>Ты сегодня покормил кота?</h2>
+        </div>
+      </div>
+
+      <!-- карточки -->
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg col-md-6 col-sm-12 mb-5" v-for='product of products'>
+          <div class="card"
+              @mouseover="product.isHover = true"
+              @mouseleave="product.isHover = false"
+              @click="selectProduct(product)"
+              :class="stateOfProduct(product)">
+            <div class="card-body pt-3">
+              <p v-if="product.isSelected && product.isHover"
+                 :style="{color: '#e62e7a'}"
+                >Котэ не одобряет?</p>
+              <p v-else>{{ product.header }}</p>
+              <h1>{{ productName }}</h1>
+              <h3>{{ product.ingredient }}</h3>
+              <p>{{ product.portionAmount }} порций</p>
+              <p>{{ product.present }} в подарок</p>
+            </div>
+            <picture>
+              <source srcset="img/cat.png">
+              <img src="img/cat.png" alt="">
+            </picture>
+            <div class="circle">
+              <h3>{{ product.value }}</h3>
+              <p>кг</p>
+            </div>
+          </div>
+          <!-- для каждого статуса своя надпись под карточкой, проверяется флагами каждой карточки -->
+          <div id='cellar'>
+            <p class="text-center" v-if="product.isSelected">{{ product.description }}</p>
+            <p class="text-center text-disabled" v-else-if="product.isDisabled">Печалька, {{ product.ingredient }} закончился.</p>
+            <p class="text-center" v-else>Чего сидишь? Порадуй котэ,
+                <a @click="selectProduct(product)">купи.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- script down below -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
